@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import CentralFlower from './components/Garden/CentralFlower';
+import EnchantedGarden from './components/Garden/EnchantedGarden';
 
 const Background = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -43,7 +44,6 @@ function App() {
   const [bloomComplete, setBloomComplete] = useState(false);
 
   useEffect(() => {
-    // Initial load state
     const timer = setTimeout(() => {
       setLoaded(true);
     }, 1000);
@@ -60,6 +60,8 @@ function App() {
       
       {/* Interactive Garden rendering underneath UI but above background */}
       <div className="absolute inset-0 z-10">
+        {bloomComplete && <EnchantedGarden />}
+        
         {!showButton && (
           <CentralFlower onBloomComplete={() => setBloomComplete(true)} />
         )}
