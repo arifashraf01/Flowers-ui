@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-conic {
+    background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fbe9e7;
+}
+
+/* Base styles for the legacy flower code that expected a dark background */
+/* The flowers use CSS vars or absolute positioning, we ensure they render */
+.not-loaded * {
+  animation-play-state: paused !important;
+}
