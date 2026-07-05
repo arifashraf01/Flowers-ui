@@ -21,3 +21,9 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
