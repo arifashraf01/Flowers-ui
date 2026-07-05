@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import Flower from './components/Flower/Flower';
+import CentralFlower from './components/Garden/CentralFlower';
 
 const Background = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -33,30 +33,6 @@ const Background = () => {
         }}
         transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
       />
-
-      {/* Floating particles */}
-      {!shouldReduceMotion && Array.from({ length: 15 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 rounded-full bg-white/50 blur-[1px]"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            scale: Math.random() * 0.5 + 0.5,
-          }}
-          animate={{
-            y: [0, -100, 0],
-            x: [0, Math.random() * 50 - 25, 0],
-            opacity: [0, 0.8, 0],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            ease: 'linear',
-            delay: Math.random() * 5,
-          }}
-        />
-      ))}
     </div>
   );
 };
@@ -64,11 +40,11 @@ const Background = () => {
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [showButton, setShowButton] = useState(true);
+  const [bloomComplete, setBloomComplete] = useState(false);
 
   useEffect(() => {
-    // Remove the not-loaded class after a short delay
+    // Initial load state
     const timer = setTimeout(() => {
-      document.body.classList.remove('not-loaded');
       setLoaded(true);
     }, 1000);
     return () => clearTimeout(timer);
@@ -82,9 +58,11 @@ function App() {
     <div className="relative min-h-screen w-full overflow-hidden text-gray-800 font-sans selection:bg-pastel-pink selection:text-gray-900">
       <Background />
       
-      {/* Flower component rendering underneath UI but above background */}
+      {/* Interactive Garden rendering underneath UI but above background */}
       <div className="absolute inset-0 z-10">
-        {!showButton && <Flower />}
+        {!showButton && (
+          <CentralFlower onBloomComplete={() => setBloomComplete(true)} />
+        )}
       </div>
 
       {/* UI Overlay */}
@@ -92,7 +70,7 @@ function App() {
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: showButton ? 1 : 0, y: showButton ? 0 : -20 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="text-center"
         >
