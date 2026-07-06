@@ -15,12 +15,12 @@ const Background = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/80 via-transparent to-transparent opacity-90 mix-blend-screen" />
       
       <motion.div 
-        className="absolute inset-0 bg-white/30 blur-[100px]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.3)_0%,_transparent_70%)]"
         animate={shouldReduceMotion ? {} : { x: ['-2%', '2%', '-2%'], y: ['-2%', '2%', '-2%'] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div 
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[#fffde7]/50 rounded-full blur-[140px] mix-blend-screen"
+        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,_rgba(255,253,231,0.5)_0%,_transparent_70%)] rounded-full mix-blend-screen"
         animate={shouldReduceMotion ? {} : { x: ['0%', '5%', '0%'] }}
         transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
       />
