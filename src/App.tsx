@@ -79,7 +79,7 @@ function App() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: loaded ? 1 : 0, scale: loaded ? 1 : 0.95 }}
               transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-              className="absolute bottom-[20vh] pointer-events-auto"
+              className="relative mt-8 pointer-events-auto"
             >
               <button
                 onClick={() => setShowButton(false)}
