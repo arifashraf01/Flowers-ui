@@ -88,7 +88,7 @@ const FlowerInstance = ({ phase, flower }: { phase: string, flower: any }) => {
   return (
     <div 
       className="absolute bottom-0 flex items-end justify-center pointer-events-none origin-bottom"
-      style={{ left: flower.left, transform: `translateX(-50%) scale(${flower.scale}) scaleX(${flower.flip})` }}
+      style={{ left: flower.left, transform: `translateX(-50%) scale(${flower.scale * flower.flip}, ${flower.scale})` }}
     >
       {/* Seed drop animation */}
       {phase === 'seed' && (
