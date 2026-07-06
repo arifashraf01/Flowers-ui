@@ -119,28 +119,7 @@ const RandomFlower = ({ species, delay, size, color1, color2, depth }: { species
 const EnchantedGarden = () => {
   const shouldReduceMotion = useReducedMotion();
 
-  const flowerData = useMemo(() => {
-    return Array.from({ length: 45 }).map((_, i) => {
-      const species = SPECIES[Math.floor(Math.random() * SPECIES.length)];
-      const x = Math.random() * 120 - 10;
-      const y = Math.random() * 40 + 60;
-      const depth = Math.random() * 0.8 + 0.3;
-      const size = Math.random() * 0.6 + 0.4;
-      const delay = Math.random() * 6;
-      
-      const palettes = [
-        { c1: '#f48fb1', c2: '#fce4ec' },
-        { c1: '#ce93d8', c2: '#f3e5f5' },
-        { c1: '#90caf9', c2: '#e3f2fd' },
-        { c1: '#ffcc80', c2: '#fff3e0' },
-        { c1: '#ffab91', c2: '#fbe9e7' },
-        { c1: '#fff59d', c2: '#fffde7' }
-      ];
-      const palette = palettes[Math.floor(Math.random() * palettes.length)];
-
-      return { id: i, species, x, y, depth, size, delay, ...palette };
-    }).sort((a, b) => a.depth - b.depth);
-  }, []);
+  // Removed flowerData to reduce lag, since CentralFlower handles flowers
 
   return (
     <>
@@ -157,7 +136,7 @@ const EnchantedGarden = () => {
         <div className="absolute inset-0 bg-white/5 pointer-events-none z-0" />
 
         {/* Ambient floating particles */}
-        {!shouldReduceMotion && Array.from({ length: 35 }).map((_, i) => (
+        {!shouldReduceMotion && Array.from({ length: 15 }).map((_, i) => (
           <motion.div
             key={`petal-${i}`}
             className="absolute w-3 h-3 bg-pastel-pink/70 rounded-full blur-[1px] shadow-sm z-30"
@@ -180,7 +159,7 @@ const EnchantedGarden = () => {
           />
         ))}
 
-        {!shouldReduceMotion && Array.from({ length: 45 }).map((_, i) => (
+        {!shouldReduceMotion && Array.from({ length: 15 }).map((_, i) => (
           <motion.div
             key={`fly-${i}`}
             className="absolute w-1.5 h-1.5 bg-yellow-200 rounded-full shadow-[0_0_15px_#ffeb3b] z-20"
@@ -195,7 +174,7 @@ const EnchantedGarden = () => {
         ))}
 
         {/* Butterflies */}
-        {!shouldReduceMotion && Array.from({ length: 6 }).map((_, i) => (
+        {!shouldReduceMotion && Array.from({ length: 2 }).map((_, i) => (
           <motion.div
             key={`butterfly-${i}`}
             className="absolute w-4 h-4 z-40"
@@ -212,11 +191,7 @@ const EnchantedGarden = () => {
           </motion.div>
         ))}
 
-        {flowerData.map((f) => (
-          <div key={f.id} className="absolute" style={{ left: `${f.x}%`, top: `${f.y}%` }}>
-            <RandomFlower species={f.species} delay={f.delay} size={f.size} color1={f.c1} color2={f.c2} depth={f.depth} />
-          </div>
-        ))}
+
       </motion.div>
 
       <Finale />
