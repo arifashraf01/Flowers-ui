@@ -31,6 +31,15 @@ export const Finale = () => {
         >
           🌸 Made with Love 🌸
         </motion.h2>
+        <motion.button
+          onClick={() => window.location.reload()}
+          className="mt-6 px-6 py-2 bg-white/20 hover:bg-white/40 border border-white/50 rounded-full text-white tracking-widest uppercase transition-all duration-300 pointer-events-auto shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+        >
+          Restart
+        </motion.button>
       </div>
     </motion.div>
   );
