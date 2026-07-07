@@ -150,6 +150,21 @@
   will-change: transform, opacity;
 }
 
+.flower--1 .flower__leaf {
+  background-color: #ff9a9e;
+  background-image: linear-gradient(to top, #fecfef, #ff9a9e);
+}
+
+.flower--2 .flower__leaf {
+  background-color: #a18cd1;
+  background-image: linear-gradient(to top, #fbc2eb, #a18cd1);
+}
+
+.flower--3 .flower__leaf {
+  background-color: #84fab0;
+  background-image: linear-gradient(to top, #8fd3f4, #84fab0);
+}
+
 .flower__leaf--1 {
   transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
 }
