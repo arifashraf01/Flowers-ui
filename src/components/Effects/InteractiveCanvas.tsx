@@ -18,7 +18,7 @@ export const InteractiveCanvas = () => {
   };
 
   const handlePointerDown = (e: React.PointerEvent) => {
-    const newRipple = { id: Date.now(), x: e.clientX, y: e.clientY };
+    const newRipple = { id: Date.now() + Math.random(), x: e.clientX, y: e.clientY };
     setRipples(prev => [...prev.slice(-4), newRipple]); // keep max 5 ripples
   };
 
