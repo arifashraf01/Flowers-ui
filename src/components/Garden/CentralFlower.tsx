@@ -19,7 +19,11 @@ const PALETTES = [
   { p1: '#90caf9', p2: '#e3f2fd', i1: '#64b5f6', i2: '#fff' }, // Blue
   { p1: '#ffcc80', p2: '#fff3e0', i1: '#ffb74d', i2: '#fff' }, // Orange
   { p1: '#ffab91', p2: '#fbe9e7', i1: '#ff8a65', i2: '#fff' }, // Peach
-  { p1: '#e57373', p2: '#ffebee', i1: '#f44336', i2: '#fff' }  // Red
+  { p1: '#e57373', p2: '#ffebee', i1: '#f44336', i2: '#fff' }, // Red
+  { p1: '#81c784', p2: '#e8f5e9', i1: '#4caf50', i2: '#fff' }, // Green
+  { p1: '#4dd0e1', p2: '#e0f7fa', i1: '#00bcd4', i2: '#fff' }, // Cyan
+  { p1: '#fff59d', p2: '#fffde7', i1: '#fbc02d', i2: '#fff' }, // Yellow
+  { p1: '#f48fb1', p2: '#81c784', i1: '#ba68c8', i2: '#fff' }  // Mixed Pastel
 ];
 
 export const CentralFlower = ({ onBloomComplete }: CentralFlowerProps) => {
