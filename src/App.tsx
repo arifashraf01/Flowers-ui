@@ -11,22 +11,29 @@ const Background = () => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#fbe9e7] via-[#f3e5f5] to-[#e3f2fd]">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/80 via-transparent to-transparent opacity-90 mix-blend-screen" />
+    <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-fuchsia-900/40 via-transparent to-transparent opacity-90 mix-blend-screen" />
       
       <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.3)_0%,_transparent_70%)]"
-        animate={shouldReduceMotion ? {} : { x: ['-2%', '2%', '-2%'], y: ['-2%', '2%', '-2%'] }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(120,0,255,0.15)_0%,_transparent_50%)]"
+        animate={shouldReduceMotion ? {} : { x: ['-2%', '2%', '-2%'], y: ['-2%', '2%', '-2%'], scale: [1, 1.1, 1] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div 
+        className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.15)_0%,_transparent_60%)] rounded-full mix-blend-screen"
+        animate={shouldReduceMotion ? {} : { x: ['0%', '5%', '0%'], y: ['0%', '5%', '0%'] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div 
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,_rgba(255,253,231,0.5)_0%,_transparent_70%)] rounded-full mix-blend-screen"
-        animate={shouldReduceMotion ? {} : { x: ['0%', '5%', '0%'] }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.1)_0%,_transparent_60%)] rounded-full mix-blend-screen"
+        animate={shouldReduceMotion ? {} : { x: ['0%', '-5%', '0%'], y: ['0%', '-5%', '0%'] }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
       />
+      <div className="absolute inset-0 backdrop-blur-[100px]" />
     </div>
   );
 };
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,7 +47,7 @@ function App() {
 
   return (
     <PointerProvider>
-      <div className="relative min-h-screen w-full overflow-hidden text-gray-800 font-sans selection:bg-pastel-pink selection:text-gray-900 bg-[#fbe9e7]">
+      <div className="relative min-h-screen w-full overflow-hidden text-gray-100 font-sans selection:bg-fuchsia-500/30 selection:text-fuchsia-100 bg-slate-950">
         <Background />
         
         {/* Fullscreen Interactive Canvas for touches/clicks */}
@@ -66,10 +73,10 @@ function App() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-center"
           >
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white/90 drop-shadow-[0_10px_20px_rgba(0,0,0,0.1)] tracking-wide mb-6">
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white/95 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)] tracking-wide mb-6">
               Flowers for Someone
             </h1>
-            <p className="font-sans font-light text-lg md:text-xl text-gray-700/80 tracking-widest uppercase">
+            <p className="font-sans font-light text-lg md:text-xl text-white/70 tracking-widest uppercase">
               A premium experience
             </p>
           </motion.div>
@@ -83,7 +90,7 @@ function App() {
             >
               <button
                 onClick={() => setShowButton(false)}
-                className="group relative px-10 py-5 bg-white/50 hover:bg-white/80 backdrop-blur-xl border border-white/60 rounded-full text-gray-800 font-medium tracking-widest uppercase transition-all duration-500 overflow-hidden shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] hover:shadow-[0_15px_40px_0_rgba(31,38,135,0.2)] hover:-translate-y-2 active:translate-y-0 active:scale-95"
+                className="group relative px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 rounded-full text-white/90 font-medium tracking-widest uppercase transition-all duration-500 overflow-hidden shadow-[0_8px_32px_0_rgba(255,255,255,0.05)] hover:shadow-[0_15px_40px_0_rgba(255,255,255,0.1)] hover:-translate-y-2 active:translate-y-0 active:scale-95"
               >
                 <span className="relative z-10 flex items-center gap-3 font-garamond text-xl">
                   <svg height="24" width="24" fill="currentColor" viewBox="0 0 24 24" className="group-hover:rotate-45 transition-transform duration-700 ease-out">
